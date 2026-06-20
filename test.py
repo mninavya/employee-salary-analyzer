@@ -1,0 +1,17 @@
+import pandas as pd
+df=pd.read_csv("emp.csv")
+print(df)
+print(df.head())
+print("Total Employess:",df["Name"].count())
+print("Highest Salary:",df["Salary"].max())
+print("Lowest Salary:", df["Salary"].min())
+print("Average Salary:", df["Salary"].mean())
+print(df[df["Salary"] > 40000])
+print(df.groupby("Department")["Salary"].mean())
+df["Gratitude Bonus"]=df["bonus salary"]+40000
+print(df)
+df.to_csv("updated_employees.csv", index=False)
+print("File Saved Successfully")
+print(df)
+salary = int(input("Enter salary: "))
+print(df[df["Salary"] > salary])
